@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "challenge-afefa": {
+      "hosting": {
+        "challenge": [
+          "challenge-afefa"
+        ]
+      }
+    }
+  }
+}
