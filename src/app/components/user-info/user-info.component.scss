@@ -1,0 +1,25 @@
+@import '~sass-mediaquery-singleline/main';
+$mobileSize: 375;
+
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include attr(padding-top, 40, 40);
+    @include attr(padding-bottom, 40, 40);
+
+    img {
+        @include attr(height, auto, auto);
+        @include attr(width, 200, 200);
+        border-radius: 50%;
+        border: 1px solid white;
+    }
+
+    mat-label {
+        @include attr(margin-top, 30, 30);
+        @include attr(font-size, 22, 20);
+        text-transform: capitalize;
+        color: white;
+    }
+}
