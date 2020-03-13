@@ -1,0 +1,37 @@
+@import '~sass-mediaquery-singleline/main';
+$mobileSize: 375;
+
+:host {
+
+    .main-login {
+        @include attr(height, 100%, 100%, true);
+        @include attr(width, 100%, 100%, true);
+        @include attr(display, flex);
+        @include attr(justify-content, center);
+        @include attr(align-items, center);
+
+        .login-wrapper {
+            @include attr(display, flex);
+            @include attr(flex-direction, column);
+            @include attr(justify-content, flex-start);
+            @include attr(align-items, center);
+            // @include attr(height, 80%, 80%, true);
+            @include attr(border-radius, 3%, 3%, true);
+            @include attr(background-color, white);
+            @include attr(padding-top, 60, 60);
+            @include attr(padding-bottom, 60, 60);
+            @include attr(padding-left, 30, 30);
+            @include attr(padding-right, 30, 30);
+
+            h1 {
+                @include attr(margin-bottom, 60, 60);
+                @include attr(font-weight, bold);
+                @include attr(font-size, 30, 40);
+            }
+
+            button {
+                @include attr(margin-top, 30, 30);
+            }
+        }
+    }
+}
