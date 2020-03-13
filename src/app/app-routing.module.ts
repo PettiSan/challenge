@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '404', component: LoginComponent },
   { path: 'schedule', component: ScheduleComponent },
+  { path: '**', component: LoginComponent },
 ];
 
 @NgModule({

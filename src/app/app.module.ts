@@ -30,18 +30,10 @@ import { registerLocaleData } from '@angular/common';
 import { LOCALE_ID } from '@angular/core';
 registerLocaleData(localePt);
 
-
 // firebase settings
-const firebaseConfig = {
-  apiKey: "AIzaSyB_XRIEjZI1oNWigNZNqPSlHqrJu0coQkM",
-  authDomain: "challenge-afefa.firebaseapp.com",
-  databaseURL: "https://challenge-afefa.firebaseio.com",
-  projectId: "challenge-afefa",
-  storageBucket: "challenge-afefa.appspot.com",
-  messagingSenderId: "937052825128",
-  appId: "1:937052825128:web:7e8b3bf641a9d89513371d",
-  measurementId: "G-B1BZ1TCR4T"
-};
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -68,7 +60,9 @@ export function momentAdapterFactory() {
     MatDividerModule,
     MatBadgeModule,
     DragAndDropModule,
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: momentAdapterFactory })
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: momentAdapterFactory }),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule
   ],
   exports: [
     MatFormFieldModule,
