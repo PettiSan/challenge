@@ -1,0 +1,175 @@
+@import '~sass-mediaquery-singleline/main';
+$mobileSize: 375;
+
+:host {
+    display: flex;;
+    flex-direction: column;
+    @include attr(align-items, center);
+
+    .restaurants-list {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include attr(padding-top, 20, 20);
+        @include attr(padding-bottom, 20, 20);
+        @include attr(padding-left, 50, 30);
+        @include attr(padding-right, 50, 30);
+        @include attr(margin-bottom, 20, 20);
+        border-radius: 3%;
+        @include attr(max-width, 90%, 75%, true);
+
+        &>mat-label {
+            font-style: italic;
+            font-weight: 100;
+            cursor: not-allowed;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            li {
+
+                &:not(:last-child) {
+                    @include attr(margin-right, 20, 10);
+                }
+
+                &.already-votted {
+                    pointer-events: none;
+                    color: gray;
+                    font-weight: 100;
+                }
+
+                mat-label {
+                    // font-weight: 300;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    mwl-calendar-month-view {
+        width: 100%;
+
+        ::ng-deep mwl-calendar-month-cell {
+            cursor: no-drop !important;
+
+            &.active {
+                cursor: grab !important;
+                background-color: gold !important;
+
+                .cal-cell-top {
+
+                    .poll-text {
+                        font-weight: bold;
+                        font-style: normal;
+                        @include attr(font-size, 16, 16);
+                    }
+                }
+            }
+
+            .cal-cell-top {
+                position: relative;
+
+                .poll-text {
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    @include attr(font-size, 14, 14);
+                    @include attr(margin-top, 15, 15);
+                    font-style: italic;
+                }
+
+                .poll-winner {
+                    position: absolute;
+                    top: 70%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    @include attr(font-size, 20, 20);
+                    font-weight: bold;
+                    font-style: italic;
+
+                }
+            }
+
+            .cell-totals {
+                display: flex;
+                justify-content: center;
+                @include attr(margin-bottom, 5);
+
+                .badge {
+                    @include attr(padding-top, 5);
+                    @include attr(padding-bottom, 5);
+                    @include attr(padding-left, 10);
+                    @include attr(padding-right, 10);
+                    font-weight: 700;
+                    border-radius: 50% 10%;
+    
+                    &:not(:last-child) {
+                        @include attr(margin-right, 10);
+                    }
+    
+                    &.red {
+                        background-color: red;
+                        color: white;
+                    }
+    
+                    &.blue {
+                        background-color: blue;
+                        color: white;
+                    }
+    
+                    &.brown {
+                        background-color: brown;
+                        color: white;
+                    }
+    
+                    &.green {
+                        background-color: green;
+                        color: white;
+                    }
+    
+                    &.yellow {
+                        background-color: yellow;
+                        color: black;
+                    }
+    
+                    &.pink {
+                        background-color: pink;
+                        color: white;
+                    }
+    
+                    &.orange {
+                        background-color: orange;
+                        color: white;
+                    }
+    
+                    &.purple {
+                        background-color: purple;
+                        color: white;
+                    }
+    
+                    &.black {
+                        background-color: black;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+
+    ::ng-deep mwl-calendar-month-view-header {
+        .cal-header {
+            .cal-cell {
+                text-transform: uppercase;
+            }
+        }
+    }
+}

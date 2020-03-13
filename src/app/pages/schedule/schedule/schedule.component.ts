@@ -11,8 +11,6 @@ export class ScheduleComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    console.log('aeae');
-    
   }
 
 }

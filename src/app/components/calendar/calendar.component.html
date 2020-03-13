@@ -1,0 +1,60 @@
+<div
+    class="restaurants-list"
+    mwlDroppable
+    (drop)="externalDrop($event.dropData.event)"
+    dragOverClass="drag-over"
+>
+    <h2>Restaurantes</h2>
+
+    <mat-label *ngIf="externalEvents.length === 0">Sem mais votos nesta semana</mat-label>
+
+    <ul>
+        <li
+        *ngFor="let event of externalEvents"
+        mwlDraggable
+        [dropData]="{event: event}"
+        dragActiveClass="drag-active"
+        [class.already-votted]="isAlredyVotted(event.title)"
+        >
+            <mat-label>
+                {{ event.title }}
+            </mat-label>
+        </li>
+    </ul>
+</div>
+
+<mwl-calendar-month-view
+    class="class"
+    [viewDate]="viewDate"
+    [events]="events"
+    [activeDayIsOpen]="true"
+    [refresh]="refresh"
+    [excludeDays]="excludeDays"
+    [cellTemplate]="customCellTemplate"
+    (eventTimesChanged)="eventDropped($event)"
+    (beforeViewRender)="beforeMonthViewRender($event)"
+    (dayClicked)="dayClicked($event.day)"
+    >
+</mwl-calendar-month-view>
+
+<ng-template #customCellTemplate let-day="day" let-locale="locale">
+    <div class="cal-cell-top">
+        <span class="cal-day-badge" *ngIf="day.badgeTotal > 0"
+        >{{ day.badgeTotal }}</span
+        >
+        <span class="poll-text">{{day.isToday ? 'Votação aberta' : day.isPast ? 'Votação encerrada' : (day.date | momentFromNow)}}</span>
+        <span class="poll-winner">{{ (!day.isToday && !day.isFuture) ? pollWinner(day.eventGroups) : '' }}</span>
+        <span class="cal-day-number"
+        >{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span
+        >
+    </div>
+
+    <div class="cell-totals">
+        <span
+        *ngFor="let group of day.eventGroups"
+        class="badge {{ group[1][0].color.primary }}"
+        >
+        {{ group[1].length }}
+        </span>
+    </div>
+</ng-template>
