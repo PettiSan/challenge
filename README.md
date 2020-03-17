@@ -15,8 +15,8 @@
 # Github repo
 [Github repo](https://github.com/PettiSan/challenge)
 
-# Google Drive zip folder
-
+# Google Drive zip
+[Google Drive](https://drive.google.com/open?id=1S4BTUJZT1J5ISly3n6bWFJyYqgOj9ncQ)
 
 # Requirements
 - **Node** `^10.13`
