@@ -167,7 +167,7 @@ export class CalendarComponent implements OnInit {
       }
     },
     {
-      id: 'Usuário6',
+      id: 'Usuário4',
       title: 'Porto dos Filés',
       color: {primary: 'blue', secondary: 'transparent'},
       start: new Date('2020 03 4'),

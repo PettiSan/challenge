@@ -28,8 +28,6 @@ describe('CalendarComponent', () => {
     .compileComponents();
 
     console.log('component ', component);
-    // console.log('fixture.nativeElement ', fixture.nativeElement);
-    // console.log('fixture.debugElement.componentInstance ', fixture.debugElement.componentInstance);
   }));
 
   beforeEach(() => {
@@ -40,19 +38,32 @@ describe('CalendarComponent', () => {
 
   describe('RN-1 - Um profissional só pode votar em um restaurante por dia.', () => {
 
-    /* it('Não podem existir dois `id` iguais no mesmo dia', () => {
+    it('Não podem existir dois `id` iguais no mesmo dia', () => {
       fixture.detectChanges();
       const el = component.events;
 
-      // let result = el.reduce((h, obj) => Object.assign(h, { [obj.start.toString()]:( h[obj.start.toString()] || [] ).concat(obj) }), {})
-      const result: any = el.reduce((h, obj) => Object.assign(h, { [obj.id]:( h[obj.id] || [] ).concat(obj) }), {});
+      let eventsGrouped;
+      let hasDuplicatesId;
 
-      console.log('resultresultresultresult ', result.usuário1);
+      function hasDuplicates(array) {
+        var valuesSoFar = [];
+        for (var i = 0; i < array.length; ++i) {
+            var value = array[i].id;
+            if (valuesSoFar.indexOf(value) !== -1) {
+                return true;
+            }
+            valuesSoFar.push(value);
+        }
+        return false;
+      }
 
-      result.keys(obj).map(function(key) {
-        return [Number(key), obj[key]];
-      });
-    }); */
+      eventsGrouped = Object.values(el.reduce((h, obj) => Object.assign(h, { [obj.start.toString()]:( h[obj.start.toString()] || [] ).concat(obj) }), {}));
+
+      hasDuplicatesId = eventsGrouped.filter(elem => hasDuplicates(elem));
+
+      expect(hasDuplicatesId.length === 0).toBeTruthy();
+
+    });
   });
 
   describe('RN-2 - O mesmo restaurante não pode ser escolhido mais de uma vez durante a semana.', () => {
