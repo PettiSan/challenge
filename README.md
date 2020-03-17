@@ -2,10 +2,10 @@
 # Created by Filipe Petitemberte
 
 # IMPORTANT
-**Para a melhor experiência possível por favor alterar a data do seu computador para o dia `18/03/2020`**
-**Assim todas as RN's poderão ser testadas sem nenhuma problema**
-**Alguns commits podem estar no futuro pois em alguns momentos para teste eu adiantei meu calendário no computador para teste e não voltei para a data correta na hora do commit**
-*último commit foi no dia `16/03/20*
+- **Para a melhor experiência possível por favor alterar a data do seu computador para o dia `18/03/2020`**
+- **Assim todas as RN's poderão ser testadas sem nenhuma problema**
+- **Alguns commits podem estar no futuro pois em alguns momentos para teste eu adiantei meu calendário no computador para teste e não voltei para a data correta na hora do commit**
+- *último commit foi no dia `16/03/20*
 
 # Firebase Hosting
 [Firebase Hosting do Projeto](https://challenge-afefa.web.app/)
