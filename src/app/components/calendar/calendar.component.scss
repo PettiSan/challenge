@@ -7,6 +7,7 @@ $mobileSize: 375;
     @include attr(align-items, center);
 
     .restaurants-list {
+        position: relative;
         background-color: white;
         display: flex;
         flex-direction: column;
@@ -56,6 +57,12 @@ $mobileSize: 375;
                 }
             }
         }
+
+        mat-icon {
+            position: absolute;
+            @include attr(left, 10, 10);
+            cursor: help;
+        }
     }
 
     mwl-calendar-month-view {
@@ -69,11 +76,10 @@ $mobileSize: 375;
                 background-color: gold !important;
 
                 .cal-cell-top {
-
                     .poll-text {
                         font-weight: bold;
                         font-style: normal;
-                        @include attr(font-size, 16, 16);
+                        // @include attr(font-size, 16, 16);
                     }
                 }
             }
@@ -81,25 +87,52 @@ $mobileSize: 375;
             .cal-cell-top {
                 position: relative;
 
+                .cal-day-badge {
+                    @include attr(padding-top, false, 3);
+                    @include attr(padding-bottom, false, 3);
+                    @include attr(padding-left, false, 3);
+                    @include attr(padding-right, false, 3);
+                    @include attr(margin-top, false, 3);
+                    @include attr(margin-left, false, 3);
+                    @include attr(min-width, false, 10);
+                    @include attr(border-radius, false, 50%, true);
+                }
+
+                .cal-day-number {
+                    @include attr(margin-top, false, 3);
+                    @include attr(margin-right, false, 3);
+                    @include attr(margin-bottom, false, 0);
+                    @include attr(font-size, false, 16);
+                }
+
                 .poll-text {
                     position: absolute;
                     top: 0;
                     left: 50%;
-                    transform: translateX(-50%);
-                    @include attr(font-size, 14, 14);
-                    @include attr(margin-top, 15, 15);
                     font-style: italic;
+                    transform: translateX(-50%);
+                    line-height: 1;
+                    text-align: center;
+                    @include attr(font-size, 14, 8);
+                    @include attr(margin-top, 15, 20);
                 }
 
                 .poll-winner {
                     position: absolute;
-                    top: 70%;
+                    @include attr(top, 70%, 75%, true);
                     left: 50%;
                     transform: translate(-50%, -50%);
                     @include attr(font-size, 20, 20);
                     font-weight: bold;
                     font-style: italic;
-
+                    @include attr(font-size, false, 12);
+                    text-align: center;
+                    // @include attr(text-align, false, center);
+                    width: 100%;
+                    // @include attr(width, false, 100%, true);
+                    @include attr(padding-left, false, 3);
+                    @include attr(padding-right, false, 3);
+                    @include attr(line-height, false, 1.1, true);
                 }
             }
 
@@ -107,59 +140,61 @@ $mobileSize: 375;
                 display: flex;
                 justify-content: center;
                 @include attr(margin-bottom, 5);
+                @include attr(padding-right, false, 3);
+                @include attr(padding-left, false, 3);
 
                 .badge {
-                    @include attr(padding-top, 5);
-                    @include attr(padding-bottom, 5);
-                    @include attr(padding-left, 10);
-                    @include attr(padding-right, 10);
+                    @include attr(padding-top, 5, 3);
+                    @include attr(padding-bottom, 5, 3);
+                    @include attr(padding-left, 10, 5);
+                    @include attr(padding-right, 10, 5);
                     font-weight: 700;
                     border-radius: 50% 10%;
-    
+
                     &:not(:last-child) {
                         @include attr(margin-right, 10);
                     }
-    
+
                     &.red {
                         background-color: red;
                         color: white;
                     }
-    
+
                     &.blue {
                         background-color: blue;
                         color: white;
                     }
-    
+
                     &.brown {
                         background-color: brown;
                         color: white;
                     }
-    
+
                     &.green {
                         background-color: green;
                         color: white;
                     }
-    
+
                     &.yellow {
                         background-color: yellow;
                         color: black;
                     }
-    
+
                     &.pink {
                         background-color: pink;
                         color: white;
                     }
-    
+
                     &.orange {
                         background-color: orange;
                         color: white;
                     }
-    
+
                     &.purple {
                         background-color: purple;
                         color: white;
                     }
-    
+
                     &.black {
                         background-color: black;
                         color: white;
@@ -173,6 +208,7 @@ $mobileSize: 375;
         .cal-header {
             .cal-cell {
                 text-transform: uppercase;
+                @include attr(font-size, 16, 9);
             }
         }
     }
