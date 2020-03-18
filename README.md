@@ -53,7 +53,7 @@
 - Para o SCSS foi utilizado o plugin **Sass Mediaquery Singleline** -> [Sass Mediaquery Singleline](https://github.com/GregoriSoria/sass-mediaquery-singleline)
     - obs: Não foi uma 'experiência' utilizar o plugin **Sass Mediaquery Singleline**, eu já venho à algum tempo desenvolvendo meus projetos sem utilizar 'px' como valor no para o CSS.
 
-# Futures Features
+# Future Features
 - Implementar melhores casos de testes unitários.
 - Uma autenticação mais segura, isso incluiria:
     - uma criação de uma tabela no banco de dados do Firebase associando os usuários com os usuários autenticados
