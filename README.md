@@ -4,17 +4,16 @@
 # IMPORTANT IMPORTANT #
     Para a melhor experiência possível por favor alterar a data do seu computador para o dia -> 18/03/2020
     Assim todas as RN's poderão ser testadas sem nenhuma problema
-# IMPORTANT IMPORTANT #
 
 # Firebase Hosting
-    https://challenge-afefa.web.app/
+    [Acessar o projeto](https://challenge-afefa.web.app/)
 
     Dados de acesso
         Usuário: usuario.1@gmail.com
         Senha: 123456
 
 # Github repo
-    https://github.com/PettiSan/challenge
+    [Github repo](https://github.com/PettiSan/challenge)
 
 # Google Drive zip folder
 
@@ -28,7 +27,7 @@
     1° - 'git clone git@github.com:PettiSan/challenge.git'
     2° - 'npm install' na pasta raiz do projeto
     3° - 'ng serve' na pasta raiz do projeto
-    4° - acesse 'http://localhost:4200/' ou 'https://challenge-afefa.web.app/'
+    4° - acesse 'http://localhost:4200/' ou [Acessar o projeto](https://challenge-afefa.web.app/)
 
 # Unit tests
     1° - 'ng test' na pasta raiz do projeto
@@ -52,10 +51,10 @@
               já foram votados naquela semana *RN-2
 
 # Highlights
-    Para o calendário foi utilizado o plugin AngularCalendar -> https://mattlewis92.github.io/angular-calendar/#/kitchen-sink
+    Para o calendário foi utilizado o plugin AngularCalendar -> [AngularCalendar](https://mattlewis92.github.io/angular-calendar/#/kitchen-sink)
     Para a autenticação de usuário e hosting foi o utilizado o Firebase
-    Para a padronização de layout foi utilizado o AngularMaterial -> https://material.angular.io/guide/getting-started
-    Para o SCSS foi utilizado o plugin Sass Mediaquery Singleline -> https://github.com/GregoriSoria/sass-mediaquery-singleline
+    Para a padronização de layout foi utilizado o AngularMaterial -> [AngularMaterial](https://material.angular.io/guide/getting-started)
+    Para o SCSS foi utilizado o plugin Sass Mediaquery Singleline -> [Sass Mediaquery Singleline](https://github.com/GregoriSoria/sass-mediaquery-singleline)
         obs: Não foi uma 'experiência' utilizar o plugin Sass Mediaquery Singleline, eu já venho à algum tempo desenvolvendo meus projetos sem utilizar 'px' como valor no para o CSS.
 
 # Futures Features
