@@ -27,16 +27,16 @@
 - **clone** `git clone git@github.com:PettiSan/challenge.git`
 - **npm install** `npm install` na pasta raiz do projeto
 - **ng serve** `ng serve` na pasta raiz do projeto
-- **acessar** `http://localhost:4200/` ou [Acessar o projeto](https://challenge-afefa.web.app/)
+- **acessar** `http://localhost:4200/` ou  [Acessar o projeto](https://challenge-afefa.web.app/)
 
 # Unit tests
 - **ng teste** `ng test` na pasta raiz do projeto
 
 - *Existem apenas 3 testes, sendo um para cada uma das RN's*
-- *Todos estão no mesmo arquivo -> 'calendar.component.spec.ts'*
+- *Todos estão no mesmo arquivo* `'calendar.component.spec.ts'`
 
 # How to use it
-- alterar a data do computador para o dia -> **18/03/2020**
+- alterar a data do computador para o dia **18/03/2020**
 - fazer login com uma conta válida
 - *sistema de votação*:
     - cada usuário do sistema terá sua conta prórpia
@@ -51,7 +51,7 @@
 - Para a autenticação de usuário e hosting foi o utilizado o **Firebase**
 - Para a padronização de layout foi utilizado o **AngularMaterial** -> [AngularMaterial](https://material.angular.io/guide/getting-started)
 - Para o SCSS foi utilizado o plugin **Sass Mediaquery Singleline** -> [Sass Mediaquery Singleline](https://github.com/GregoriSoria/sass-mediaquery-singleline)
-- obs: Não foi uma 'experiência' utilizar o plugin **Sass Mediaquery Singleline**, eu já venho à algum tempo desenvolvendo meus projetos sem utilizar 'px' como valor no para o CSS.
+    - obs: Não foi uma 'experiência' utilizar o plugin **Sass Mediaquery Singleline**, eu já venho à algum tempo desenvolvendo meus projetos sem utilizar 'px' como valor no para o CSS.
 
 # Futures Features
 - Implementar melhores casos de testes unitários.
