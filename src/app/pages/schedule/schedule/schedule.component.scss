@@ -1,0 +1,25 @@
+@import '~sass-mediaquery-singleline/main';
+$mobileSize: 375;
+
+:host {
+    position: relative;
+
+    .logout {
+        position: absolute;
+        top: 0;
+        @include attr(left, 25, 15);
+        background-color: white;
+        border-radius: 50%;
+        @include attr(margin-top, 40, 40);
+        @include attr(padding-top, 5, 5);
+        @include attr(padding-bottom, 5, 5);
+        @include attr(padding-left, 5, 5);
+        @include attr(padding-right, 5, 5);
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}

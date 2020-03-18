@@ -3,9 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/moment';
 import * as moment from 'moment';
+import { MomentFromNowPipe } from './pipes/moment-from-now.pipe';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 
 // Module imports for Angular Material
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -15,14 +17,18 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatBadgeModule } from '@angular/material/badge';
+
+// AngularCalendar imports
+import { DragAndDropModule } from 'angular-draggable-droppable';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+
+
+// components imports
 import { ScheduleComponent } from './pages/schedule/schedule/schedule.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { RestaurantsListComponent } from './components/restaurants-list/restaurants-list.component';
-
-import { DragAndDropModule } from 'angular-draggable-droppable';
-import { MomentFromNowPipe } from './pipes/moment-from-now.pipe';
 
 // seta a language para Portugues para o AngularCalendar
 import localePt from '@angular/common/locales/pt';
@@ -33,11 +39,17 @@ registerLocaleData(localePt);
 // firebase settings
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { environment } from '../environments/environment';
+import { environment } from 'src/environments/environment';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
 };
+
+// momentJs settings
+moment().startOf('day');
+moment.locale('pt');
+// define o "today" do momentJs para uma data especifica
+(moment as any).now = () => { return +new Date('2020-03-18 00:00:00'); };
 
 @NgModule({
   declarations: [
@@ -62,7 +74,9 @@ export function momentAdapterFactory() {
     DragAndDropModule,
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: momentAdapterFactory }),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     MatFormFieldModule,

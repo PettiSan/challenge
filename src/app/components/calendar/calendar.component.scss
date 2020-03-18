@@ -35,6 +35,7 @@ $mobileSize: 375;
             flex-wrap: wrap;
 
             li {
+                transition: opacity 0.3s ease-in-out;
 
                 &:not(:last-child) {
                     @include attr(margin-right, 20, 10);
@@ -46,8 +47,11 @@ $mobileSize: 375;
                     font-weight: 100;
                 }
 
+                &:hover {
+                    opacity: 0.8;
+                }
+
                 mat-label {
-                    // font-weight: 300;
                     cursor: pointer;
                 }
             }

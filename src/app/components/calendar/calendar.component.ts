@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import { Subject} from 'rxjs';
-// import { Subject, from, of, pipe} from 'rxjs';
-// import { groupBy, mergeMap, toArray, map, distinct, reduce } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 import {
   CalendarEvent,
@@ -36,227 +35,686 @@ interface Moment {
 })
 export class CalendarComponent implements OnInit {
   view: CalendarView = CalendarView.Month;
-  viewDate: Date = new Date('2020-03-10');
+  viewDate: Date = moment().toDate();
   events: CalendarEvent[] = [
+    // dia 2 // São Rafael
     {
-      id: 'User1',
-      title: 'The Chefs',
-      color: {primary: 'red', secondary: 'transparent'},
-      start: new Date('2020-03-9'),
-      meta: {
-        type: 'The Chefs'
-      }
-    },
-    {
-      id: 'User2',
-      title: 'Porto dos Filés',
-      color: {primary: 'blue', secondary: 'transparent'},
-      start: new Date('2020-03-9'),
-      meta: {
-        type: 'Porto dos Filés'
-      }
-    },
-    {
-      id: 'User4',
-      title: 'The Chefs',
-      color: {primary: 'red', secondary: 'transparent'},
-      start: new Date('2020-03-9'),
-      meta: {
-        type: 'The Chefs'
-      }
-    },
-    {
-      id: 'User5',
-      title: 'The Chefs',
-      color: {primary: 'red', secondary: 'transparent'},
-      start: new Date('2020-03-9'),
-      meta: {
-        type: 'The Chefs'
-      }
-    },
-    {
-      id: 'User6',
-      title: 'Porto dos Filés',
-      color: {primary: 'blue', secondary: 'transparent'},
-      start: new Date('2020-03-9'),
-      meta: {
-        type: 'Porto dos Filés'
-      }
-    },
-    {
-      id: 'User6',
-      title: 'Porto dos Filés',
-      color: {primary: 'blue', secondary: 'transparent'},
-      start: new Date('2020-03-12 00:00:00'),
-      meta: {
-        type: 'Porto dos Filés'
-      }
-    },
-  ];
-  externalEvents: CalendarEvent[] = [
-    {
-      id: 'User3',
-      title: 'The Chefs',
-      color: {primary: 'red', secondary: 'transparent'},
-      start: new Date,
-      meta: {
-        type: 'The Chefs'
-      }
-    },
-    {
-      id: 'User3',
-      title: 'Porto dos Filés',
-      color: {primary: 'blue', secondary: 'transparent'},
-      start: new Date,
-      meta: {
-        type: 'Porto dos Filés'
-      }
-    },
-    {
-      id: 'User3',
-      title: 'Madero',
-      color: {primary: 'orange', secondary: 'transparent'},
-      start: new Date,
-      meta: {
-        type: 'Madero'
-      }
-    },
-    {
-      id: 'User3',
-      title: 'Outbeck',
+      id: 'Usuário1',
+      title: 'Outback',
       color: {primary: 'purple', secondary: 'transparent'},
-      start: new Date,
+      start: new Date('2020 03 2'),
       meta: {
-        type: 'Outbeck'
+        type: 'Outback'
       }
     },
     {
-      id: 'User3',
-      title: 'Oaks',
-      color: {primary: 'yellow', secondary: 'transparent'},
-      start: new Date,
+      id: 'Usuário2',
+      title: 'São Rafael',
+      color: {primary: 'brown', secondary: 'transparent'},
+      start: new Date('2020 03 2'),
       meta: {
-        type: 'Oaks'
+        type: 'São Rafael'
       }
     },
     {
-      id: 'User3',
+      id: 'Usuário3',
+      title: 'São Rafael',
+      color: {primary: 'brown', secondary: 'transparent'},
+      start: new Date('2020 03 2'),
+      meta: {
+        type: 'São Rafael'
+      }
+    },
+    {
+      id: 'Usuário4',
+      title: 'São Rafael',
+      color: {primary: 'brown', secondary: 'transparent'},
+      start: new Date('2020 03 2'),
+      meta: {
+        type: 'São Rafael'
+      }
+    },
+    // dia 3 // Outback
+    {
+      id: 'Usuário1',
+      title: 'Outback',
+      color: {primary: 'purple', secondary: 'transparent'},
+      start: new Date('2020 03 3'),
+      meta: {
+        type: 'Outback'
+      }
+    },
+    {
+      id: 'Usuário6',
+      title: 'Outback',
+      color: {primary: 'purple', secondary: 'transparent'},
+      start: new Date('2020 03 3'),
+      meta: {
+        type: 'Outback'
+      }
+    },
+    {
+      id: 'Usuário3',
+      title: 'Outback',
+      color: {primary: 'purple', secondary: 'transparent'},
+      start: new Date('2020 03 3'),
+      meta: {
+        type: 'Outback'
+      }
+    },
+    {
+      id: 'Usuário4',
       title: 'Bistro do Alá',
       color: {primary: 'black', secondary: 'transparent'},
-      start: new Date,
+      start: new Date('2020 03 3'),
       meta: {
         type: 'Bistro do Alá'
       }
     },
     {
-      id: 'User3',
+      id: 'Usuário5',
+      title: 'The Chefs',
+      color: {primary: 'red', secondary: 'transparent'},
+      start: new Date('2020 03 3'),
+      meta: {
+        type: 'The Chefs'
+      }
+    },
+    // dia 4 // The Chefs
+    {
+      id: 'Usuário2',
+      title: 'The Chefs',
+      color: {primary: 'red', secondary: 'transparent'},
+      start: new Date('2020 03 4'),
+      meta: {
+        type: 'The Chefs'
+      }
+    },
+    {
+      id: 'Usuário6',
+      title: 'The Chefs',
+      color: {primary: 'red', secondary: 'transparent'},
+      start: new Date('2020 03 4'),
+      meta: {
+        type: 'The Chefs'
+      }
+    },
+    {
+      id: 'Usuário3',
+      title: 'Oaks',
+      color: {primary: 'yellow', secondary: 'transparent'},
+      start: new Date('2020 03 4'),
+      meta: {
+        type: 'Oaks'
+      }
+    },
+    {
+      id: 'Usuário1',
+      title: 'The Chefs',
+      color: {primary: 'red', secondary: 'transparent'},
+      start: new Date('2020 03 4'),
+      meta: {
+        type: 'The Chefs'
+      }
+    },
+    {
+      id: 'Usuário5',
+      title: 'The Chefs',
+      color: {primary: 'red', secondary: 'transparent'},
+      start: new Date('2020 03 4'),
+      meta: {
+        type: 'The Chefs'
+      }
+    },
+    {
+      id: 'Usuário6',
+      title: 'Porto dos Filés',
+      color: {primary: 'blue', secondary: 'transparent'},
+      start: new Date('2020 03 4'),
+      meta: {
+        type: 'Porto dos Filés'
+      }
+    },
+    // dia 5 // Bistro do Alá
+    {
+      id: 'Usuário1',
+      title: 'Bistro do Alá',
+      color: {primary: 'black', secondary: 'transparent'},
+      start: new Date('2020 03 5'),
+      meta: {
+        type: 'Bistro do Alá'
+      }
+    },
+    {
+      id: 'Usuário6',
+      title: 'Porto dos Filés',
+      color: {primary: 'blue', secondary: 'transparent'},
+      start: new Date('2020-03-5'),
+      meta: {
+        type: 'Porto dos Filés'
+      }
+    },
+    {
+      id: 'Usuário2',
+      title: 'Bistro do Alá',
+      color: {primary: 'black', secondary: 'transparent'},
+      start: new Date('2020 03 5'),
+      meta: {
+        type: 'Bistro do Alá'
+      }
+    },
+    {
+      id: 'Usuário5',
+      title: 'Bistro do Alá',
+      color: {primary: 'black', secondary: 'transparent'},
+      start: new Date('2020 03 5'),
+      meta: {
+        type: 'Bistro do Alá'
+      }
+    },
+    // dia 6 // Oaks
+    {
+      id: 'Usuário6',
+      title: 'Oaks',
+      color: {primary: 'yellow', secondary: 'transparent'},
+      start: new Date('2020 03 6'),
+      meta: {
+        type: 'Oaks'
+      }
+    },
+    {
+      id: 'Usuário4',
+      title: 'Madero',
+      color: {primary: 'orange', secondary: 'transparent'},
+      start: new Date('2020 03 6'),
+      meta: {
+        type: 'Madero'
+      }
+    },
+    {
+      id: 'Usuário2',
+      title: 'Oaks',
+      color: {primary: 'yellow', secondary: 'transparent'},
+      start: new Date('2020 03 6'),
+      meta: {
+        type: 'Oaks'
+      }
+    },
+    // dia 9 // The Chefs
+    {
+      id: 'Usuário1',
+      title: 'Oaks',
+      color: {primary: 'yellow', secondary: 'transparent'},
+      start: new Date('2020 03 9'),
+      meta: {
+        type: 'Oaks'
+      }
+    },
+    {
+      id: 'Usuário2',
+      title: 'The Chefs',
+      color: {primary: 'red', secondary: 'transparent'},
+      start: new Date('2020 03 9'),
+      meta: {
+        type: 'The Chefs'
+      }
+    },
+    {
+      id: 'Usuário3',
+      title: 'The Chefs',
+      color: {primary: 'red', secondary: 'transparent'},
+      start: new Date('2020 03 9'),
+      meta: {
+        type: 'The Chefs'
+      }
+    },
+    {
+      id: 'Usuário4',
+      title: 'The Chefs',
+      color: {primary: 'red', secondary: 'transparent'},
+      start: new Date('2020 03 9'),
+      meta: {
+        type: 'The Chefs'
+      }
+    },
+    {
+      id: 'Usuário5',
+      title: 'Porto dos Filés',
+      color: {primary: 'blue', secondary: 'transparent'},
+      start: new Date('2020-03-9'),
+      meta: {
+        type: 'Porto dos Filés'
+      }
+    },
+    {
+      id: 'Usuário9',
+      title: 'Porto dos Filés',
+      color: {primary: 'blue', secondary: 'transparent'},
+      start: new Date('2020 03 9'),
+      meta: {
+        type: 'Porto dos Filés'
+      }
+    },
+    // dia 10 // Porto dos Filés
+    {
+      id: 'Usuário6',
+      title: 'Porto dos Filés',
+      color: {primary: 'blue', secondary: 'transparent'},
+      start: new Date('2020 03 10'),
+      meta: {
+        type: 'Porto dos Filés'
+      }
+    },
+    {
+      id: 'Usuário3',
+      title: 'Porto dos Filés',
+      color: {primary: 'blue', secondary: 'transparent'},
+      start: new Date('2020 03 10'),
+      meta: {
+        type: 'Porto dos Filés'
+      }
+    },
+    {
+      id: 'Usuário1',
       title: 'São Rafael',
       color: {primary: 'brown', secondary: 'transparent'},
-      start: new Date,
+      start: new Date('2020 03 10'),
+      meta: {
+        type: 'São Rafael'
+      }
+    },
+    {
+      id: 'Usuário4',
+      title: 'Oaks',
+      color: {primary: 'yellow', secondary: 'transparent'},
+      start: new Date('2020 03 10'),
+      meta: {
+        type: 'Oaks'
+      }
+    },
+    {
+      id: 'Usuário5',
+      title: 'Outback',
+      color: {primary: 'purple', secondary: 'transparent'},
+      start: new Date('2020 03 10'),
+      meta: {
+        type: 'Outback'
+      }
+    },
+    {
+      id: 'Usuário2',
+      title: 'Porto dos Filés',
+      color: {primary: 'blue', secondary: 'transparent'},
+      start: new Date('2020 03 10'),
+      meta: {
+        type: 'Porto dos Filés'
+      }
+    },
+    // dia 11 // Oaks
+    {
+      id: 'Usuário4',
+      title: 'Oaks',
+      color: {primary: 'yellow', secondary: 'transparent'},
+      start: new Date('2020 03 11'),
+      meta: {
+        type: 'Oaks'
+      }
+    },
+    {
+      id: 'Usuário1',
+      title: 'Oaks',
+      color: {primary: 'yellow', secondary: 'transparent'},
+      start: new Date('2020 03 11'),
+      meta: {
+        type: 'Oaks'
+      }
+    },
+    {
+      id: 'Usuário6',
+      title: 'Madero',
+      color: {primary: 'orange', secondary: 'transparent'},
+      start: new Date('2020 03 11'),
+      meta: {
+        type: 'Madero'
+      }
+    },
+    // dia 12 // Bistro do Alá
+    {
+      id: 'Usuário2',
+      title: 'Bistro do Alá',
+      color: {primary: 'black', secondary: 'transparent'},
+      start: new Date('2020 03 12'),
+      meta: {
+        type: 'Bistro do Alá'
+      }
+    },
+    {
+      id: 'Usuário5',
+      title: 'São Rafael',
+      color: {primary: 'brown', secondary: 'transparent'},
+      start: new Date('2020 03 12'),
+      meta: {
+        type: 'São Rafael'
+      }
+    },
+    {
+      id: 'Usuário1',
+      title: 'Bistro do Alá',
+      color: {primary: 'black', secondary: 'transparent'},
+      start: new Date('2020 03 12'),
+      meta: {
+        type: 'Bistro do Alá'
+      }
+    },
+    {
+      id: 'Usuário3',
+      title: 'Bistro do Alá',
+      color: {primary: 'black', secondary: 'transparent'},
+      start: new Date('2020 03 12'),
+      meta: {
+        type: 'Bistro do Alá'
+      }
+    },
+    {
+      id: 'Usuário6',
+      title: 'Bistro do Alá',
+      color: {primary: 'black', secondary: 'transparent'},
+      start: new Date('2020 03 12'),
+      meta: {
+        type: 'Bistro do Alá'
+      }
+    },
+    // dia 13 // Madero
+    {
+      id: 'Usuário1',
+      title: 'Madero',
+      color: {primary: 'orange', secondary: 'transparent'},
+      start: new Date('2020 03 13'),
+      meta: {
+        type: 'Madero'
+      }
+    },
+    {
+      id: 'Usuário3',
+      title: 'Madero',
+      color: {primary: 'orange', secondary: 'transparent'},
+      start: new Date('2020 03 13'),
+      meta: {
+        type: 'Madero'
+      }
+    },
+    {
+      id: 'Usuário6',
+      title: 'Madero',
+      color: {primary: 'orange', secondary: 'transparent'},
+      start: new Date('2020 03 13'),
+      meta: {
+        type: 'Madero'
+      }
+    },
+    {
+      id: 'Usuário4',
+      title: 'São Rafael',
+      color: {primary: 'brown', secondary: 'transparent'},
+      start: new Date('2020 03 13'),
+      meta: {
+        type: 'São Rafael'
+      }
+    },
+    // dia 16 // São Rafael
+    {
+      id: 'Usuário1',
+      title: 'São Rafael',
+      color: {primary: 'brown', secondary: 'transparent'},
+      start: new Date('2020 03 16'),
+      meta: {
+        type: 'São Rafael'
+      }
+    },
+    {
+      id: 'Usuário6',
+      title: 'São Rafael',
+      color: {primary: 'brown', secondary: 'transparent'},
+      start: new Date('2020 03 16'),
+      meta: {
+        type: 'São Rafael'
+      }
+    },
+    {
+      id: 'Usuário2',
+      title: 'Oaks',
+      color: {primary: 'yellow', secondary: 'transparent'},
+      start: new Date('2020-03-16'),
+      meta: {
+        type: 'Oaks'
+      }
+    },
+    {
+      id: 'Usuário5',
+      title: 'Oaks',
+      color: {primary: 'brown', secondary: 'transparent'},
+      start: new Date('2020 03 16'),
+      meta: {
+        type: 'Oaks'
+      }
+    },
+    {
+      id: 'Usuário3',
+      title: 'São Rafael',
+      color: {primary: 'brown', secondary: 'transparent'},
+      start: new Date('2020 03 16'),
+      meta: {
+        type: 'São Rafael'
+      }
+    },
+    // dia 17 // Porto dos Filés
+    {
+      id: 'Usuário6',
+      title: 'Porto dos Filés',
+      color: {primary: 'blue', secondary: 'transparent'},
+      start: new Date('2020 03 17'),
+      meta: {
+        type: 'Porto dos Filés'
+      }
+    },
+    {
+      id: 'Usuário5',
+      title: 'The Chefs',
+      color: {primary: 'red', secondary: 'transparent'},
+      start: new Date('2020 03 17'),
+      meta: {
+        type: 'The Chefs'
+      }
+    },
+    {
+      id: 'Usuário1',
+      title: 'Porto dos Filés',
+      color: {primary: 'blue', secondary: 'transparent'},
+      start: new Date('2020 03 17'),
+      meta: {
+        type: 'Porto dos Filés'
+      }
+    },
+    {
+      id: 'Usuário2',
+      title: 'Porto dos Filés',
+      color: {primary: 'blue', secondary: 'transparent'},
+      start: new Date('2020 03 17'),
+      meta: {
+        type: 'Porto dos Filés'
+      }
+    },
+    {
+      id: 'Usuário4',
+      title: 'Madero',
+      color: {primary: 'orange', secondary: 'transparent'},
+      start: new Date('2020 03 17'),
+      meta: {
+        type: 'Madero'
+      }
+    },
+    // dia 18 // "Hoje"!!
+    {
+      id: 'Usuário6',
+      title: 'Bistro do Alá',
+      color: {primary: 'black', secondary: 'transparent'},
+      start: new Date('2020 03 18'),
+      meta: {
+        type: 'Bistro do Alá'
+      }
+    },
+    {
+      id: 'Usuário5',
+      title: 'Outback',
+      color: {primary: 'purple', secondary: 'transparent'},
+      start: new Date('2020 03 18'),
+      meta: {
+        type: 'Outback'
+      }
+    },
+    {
+      id: 'Usuário2',
+      title: 'Oaks',
+      color: {primary: 'yellow', secondary: 'transparent'},
+      start: new Date('2020 03 18'),
+      meta: {
+        type: 'Oaks'
+      }
+    },
+    {
+      id: 'Usuário4',
+      title: 'Oaks',
+      color: {primary: 'yellow', secondary: 'transparent'},
+      start: new Date('2020 03 18'),
+      meta: {
+        type: 'Oaks'
+      }
+    },
+    {
+      id: 'Usuário3',
+      title: 'Bistro do Alá',
+      color: {primary: 'black', secondary: 'transparent'},
+      start: new Date('2020 03 18'),
+      meta: {
+        type: 'Bistro do Alá'
+      }
+    },
+  ];
+  externalEvents: CalendarEvent[] = [
+    {
+      id: 'Usuário1',
+      title: 'The Chefs',
+      color: {primary: 'red', secondary: 'transparent'},
+      start: new Date('2020 03 18'),
+      meta: {
+        type: 'The Chefs'
+      }
+    },
+    {
+      id: 'Usuário1',
+      title: 'Porto dos Filés',
+      color: {primary: 'blue', secondary: 'transparent'},
+      start: new Date('2020 03 18'),
+      meta: {
+        type: 'Porto dos Filés'
+      }
+    },
+    {
+      id: 'Usuário1',
+      title: 'Madero',
+      color: {primary: 'orange', secondary: 'transparent'},
+      start: new Date('2020 03 18'),
+      meta: {
+        type: 'Madero'
+      }
+    },
+    {
+      id: 'Usuário1',
+      title: 'Outback',
+      color: {primary: 'purple', secondary: 'transparent'},
+      start: new Date('2020 03 18'),
+      meta: {
+        type: 'Outback'
+      }
+    },
+    {
+      id: 'Usuário1',
+      title: 'Oaks',
+      color: {primary: 'yellow', secondary: 'transparent'},
+      start: new Date('2020 03 18'),
+      meta: {
+        type: 'Oaks'
+      }
+    },
+    {
+      id: 'Usuário1',
+      title: 'Bistro do Alá',
+      color: {primary: 'black', secondary: 'transparent'},
+      start: new Date('2020 03 18'),
+      meta: {
+        type: 'Bistro do Alá'
+      }
+    },
+    {
+      id: 'Usuário1',
+      title: 'São Rafael',
+      color: {primary: 'brown', secondary: 'transparent'},
+      start: new Date('2020 03 18'),
       meta: {
         type: 'São Rafael'
       }
     }
   ];
   excludeDays: number[] = [0, 6]; // remove os fins de semana
+  weekStartsOn = DAYS_OF_WEEK.SUNDAY;
   activeDayIsOpen = true; // toogle o elemento de detalhes do dia
   groupedSimilarEvents: CalendarEvent[] = []; // agrupa os eventos
   refresh: Subject<any> = new Subject();
+  isEventsHardcoded: boolean = environment.eventsHardcoded;
 
-  // hardcoded
-  // RN-1
+  // hardcoded // RN-1
   eventsOfThisWeekGrouped: any[] = [
-    'The Chefs',
+    'São Rafael',
     'Porto dos Filés'
-  ];
-
-  teste: any[] = [
-    {
-      id: 'User1',
-      title: 'Porto dos Filés',
-      color: {primary: 'blue', secondary: 'transparent'},
-      start: new Date('2020-03-2'),
-      meta: {
-        type: 'Porto dos Filés'
-      }
-    },
-    {
-      id: 'User2',
-      title: 'Porto dos Filés',
-      color: {primary: 'blue', secondary: 'transparent'},
-      start: new Date('2020-03-2'),
-      meta: {
-        type: 'Porto dos Filés'
-      }
-    },
-    {
-      id: 'User4',
-      title: 'The Chefs',
-      color: {primary: 'red', secondary: 'transparent'},
-      start: new Date('2020-03-2'),
-      meta: {
-        type: 'The Chefs'
-      }
-    },
-    {
-      id: 'User5',
-      title: 'The Chefs',
-      color: {primary: 'red', secondary: 'transparent'},
-      start: new Date('2020-03-2'),
-      meta: {
-        type: 'The Chefs'
-      }
-    },
-    {
-      id: 'User6',
-      title: 'Porto dos Filés',
-      color: {primary: 'blue', secondary: 'transparent'},
-      start: new Date('2020-03-2'),
-      meta: {
-        type: 'Porto dos Filés'
-      }
-    },
   ];
 
   constructor() { }
 
   ngOnInit(): void {
     this.groupSimilarEvents();
-
-    this.fetchEvents();
-
-    moment().startOf('day');
-    moment.locale('pt');
   }
 
   eventDropped({event, newStart}: CalendarEventTimesChangedEvent): void {
-    console.log('this dropred ', this);
+    // console.log('this dropred ', this);
     // console.log('event dropred ', event);
 
-    const externalIndex = this.externalEvents.indexOf(event);
+    if (moment(newStart).isSame(moment().toDate(), 'day')) {
+      const externalIndex = this.externalEvents.indexOf(event);
 
-    // bloqueia o usuário de votar 2x no mesmo dia
-    this.events.filter((el, elIndex) => {
-      // console.log('el.start ', el.start);
-      // console.log('event.start ', event.start);
+      // bloqueia o usuário de votar 2x no mesmo dia
+      this.events.filter((el, elIndex) => {
+        if (moment(el.start).isSame(event.start, 'day') && el.id === event.id) {
+          this.events.splice(elIndex);
+          this.externalEvents.push(el);
+        }
+      });
 
-      if (moment(el.start).isSame(event.start) && el.id === event.id) {
-        this.events.splice(elIndex);
-        this.externalEvents.push(el);
+      // remove o item do array de restaurantes
+      if (externalIndex > -1) {
+        this.externalEvents.splice(externalIndex, 1);
+        this.events.push(event);
       }
-    });
 
-    // remove o item do array de restaurantes
-    if (externalIndex > -1) {
-      this.externalEvents.splice(externalIndex, 1);
-      this.events.push(event);
+      event.start = newStart;
+
+      this.events = [...this.events];
+
+      this.groupSimilarEvents();
+    } else {
+      /* // alguem efeito para dar um feedback que não é possivel largar o evento externo nesse dia
+      event.cssClass = 'active';
+      this.refresh.next(); */
     }
-
-    event.start = newStart;
-
-    this.events = [...this.events];
-
-    this.groupSimilarEvents();
   }
 
   externalDrop(event: CalendarEvent) {
@@ -289,18 +747,34 @@ export class CalendarComponent implements OnInit {
 
     // cria o array para ser consumido no template custom de agrupamento
     body.forEach(cell => {
+
       const groups = {};
       cell.events.forEach((event: CalendarEvent<EventGroupMeta>) => {
         groups[event.meta.type] = groups[event.meta.type] || [];
         groups[event.meta.type].push(event);
       });
 
-      // cell.eventGroups = Object.entries(groups);
       cell['eventGroups'] = Object.entries(groups);
     });
 
     // coloca a classe especial no evento do dia
     body.forEach(day => {
+
+      // caso especial para o Desafio para ter um caso de uso com todas as RN's funcionais
+      // por que caso o projeto seja rodado num dia de fim de semana não tenha nenhum problema
+      // if (this.isEventsHardcoded) {
+      //   if (moment(day.date).isSame(moment().toDate(), 'day')) {
+      //     day.isToday = true;
+      //     day.isFuture = false;
+      //   } else if (moment(day.date).isSame(moment().add(-1, 'days').toDate(), 'day')) {
+      //     day.isPast = true;
+      //     day.isFuture = false;
+      //   } else if (moment(day.date).isSame(moment().add(-2, 'days').toDate(), 'day')) {
+      //     day.isPast = true;
+      //     day.isFuture = false;
+      //   }
+      // }
+
       if (day.isToday) {
         day.cssClass = 'active';
       }
@@ -364,25 +838,6 @@ export class CalendarComponent implements OnInit {
     return mostVoted ? mostVoted[0].title : '';
   }
 
-  fetchEvents(): void {
-    /* const getStart: any = {
-      month: startOfMonth,
-      week: startOfWeek,
-      day: startOfDay
-    }[this.view];
-
-    const getEnd: any = {
-      month: endOfMonth,
-      week: endOfWeek,
-      day: endOfDay
-    }[this.view]; */
-
-
-    this.teste.map(teste => {
-      this.events.push(teste);
-    });
-  }
-
   // pega apenas os dias da semana atual
   daysOfCurrentWeek() {
     const weekStart = moment().startOf('week');
@@ -397,13 +852,31 @@ export class CalendarComponent implements OnInit {
 
   // cria um array com os nomes dos restaurantes votados na semana
   // para ser desabilitado na listagem de restaurantes
-  // e evitar duplicidade de escolha de um mesmo restaurante na semana 
-  // RN-2
-  // harcoded
+  // e evitar duplicidade de escolha de um mesmo restaurante na semana
+  // RN-2 // harcoded
   isAlredyVotted(elem) {
     // const onlyEventsOfThisWeek = [];
     // days.filter((day) => this.events.filter((event) => moment(event.start).isSame(day._d) ? onlyEventsOfThisWeek.push(event) : null));
 
     return this.eventsOfThisWeekGrouped.includes(elem);
   }
+
+  /* fetchEvents(): void {
+    const getStart: any = {
+      month: startOfMonth,
+      week: startOfWeek,
+      day: startOfDay
+    }[this.view];
+
+    const getEnd: any = {
+      month: endOfMonth,
+      week: endOfWeek,
+      day: endOfDay
+    }[this.view];
+
+
+    // this.teste.map(teste => {
+    //   this.events.push(teste);
+    // });
+  } */
 }

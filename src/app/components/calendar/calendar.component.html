@@ -43,7 +43,7 @@
         >{{ day.badgeTotal }}</span
         >
         <span class="poll-text">{{day.isToday ? 'Votação aberta' : day.isPast ? 'Votação encerrada' : (day.date | momentFromNow)}}</span>
-        <span class="poll-winner">{{ (!day.isToday && !day.isFuture) ? pollWinner(day.eventGroups) : '' }}</span>
+        <span class="poll-winner">{{ !day.isFuture ? pollWinner(day.eventGroups) : '' }}</span>
         <span class="cal-day-number"
         >{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span
         >
