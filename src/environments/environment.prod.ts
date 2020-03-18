@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
+  eventsHardcoded: true,
   firebase: {
     apiKey: 'AIzaSyB_XRIEjZI1oNWigNZNqPSlHqrJu0coQkM',
     authDomain: 'challenge-afefa.firebaseapp.com',
