@@ -31,6 +31,10 @@ $mobileSize: 375;
 
             button {
                 @include attr(margin-top, 30, 30);
+
+                &:disabled {
+                    // background-color: red;
+                }
             }
         }
     }
