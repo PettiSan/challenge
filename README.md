@@ -8,9 +8,9 @@
 # Firebase Hosting
 [Firebase Hosting do Projeto](https://challenge-afefa.web.app/)
 
-*Dados de acesso*
-    **Usuário**: `usuario.1@gmail.com`
-    **Senha**: `123456`
+- *Dados de acesso*
+    - **Usuário**: `usuario.1@gmail.com`
+    - **Senha**: `123456`
 
 # Github repo
 [Github repo](https://github.com/PettiSan/challenge)
@@ -19,11 +19,11 @@
 
 
 # Requirements
-**Node version ^10.13**
-**AngularCli ^9.x**
-**NPM ^6**
+- **Node** `^10.13`
+- **AngularCli** `^9.x`
+- **NPM** `^6`
 
-# How to run the project
+# How to run
 - **clone** `git clone git@github.com:PettiSan/challenge.git`
 - **npm install** `npm install` na pasta raiz do projeto
 - **ng serve** `ng serve` na pasta raiz do projeto
@@ -32,13 +32,13 @@
 # Unit tests
 - **ng teste** `ng test` na pasta raiz do projeto
 
-*Existem apenas 3 testes, sendo um para cada uma das RN's*
-*Todos estão no mesmo arquivo -> 'calendar.component.spec.ts'*
+- *Existem apenas 3 testes, sendo um para cada uma das RN's*
+- *Todos estão no mesmo arquivo -> 'calendar.component.spec.ts'*
 
 # How to use it
 - alterar a data do computador para o dia -> **18/03/2020**
 - fazer login com uma conta válida
-- sistema de votação:
+- *sistema de votação*:
     - cada usuário do sistema terá sua conta prórpia
     - apenas o dia de "hoje" poderá receber votos, esse dia estará destacado no calendário com uma cor de background dourada e com um texto 'Votação aberta'
     - cada voto se dá com o ato de arrastar e soltar um dos nomes de restaurantes disponíveis na lista acima do calendário
