@@ -17,6 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 // AngularCalendar imports
 import { DragAndDropModule } from 'angular-draggable-droppable';
@@ -28,7 +29,6 @@ import { ScheduleComponent } from './pages/schedule/schedule/schedule.component'
 import { LoginComponent } from './pages/login/login.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
-import { RestaurantsListComponent } from './components/restaurants-list/restaurants-list.component';
 
 // seta a language para Portugues para o AngularCalendar
 import localePt from '@angular/common/locales/pt';
@@ -58,7 +58,6 @@ moment.locale('pt');
     LoginComponent,
     CalendarComponent,
     UserInfoComponent,
-    RestaurantsListComponent,
     MomentFromNowPipe,
   ],
   imports: [
@@ -71,6 +70,7 @@ moment.locale('pt');
     MatIconModule,
     MatDividerModule,
     MatBadgeModule,
+    MatTooltipModule,
     DragAndDropModule,
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: momentAdapterFactory }),
     AngularFireModule.initializeApp(environment.firebase),
