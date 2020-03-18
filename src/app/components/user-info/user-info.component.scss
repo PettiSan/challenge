@@ -18,7 +18,7 @@ $mobileSize: 375;
 
     mat-label {
         @include attr(margin-top, 30, 30);
-        @include attr(font-size, 22, 20);
+        @include attr(font-size, 25, 20);
         text-transform: capitalize;
         color: white;
     }
