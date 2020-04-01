@@ -1,4 +1,4 @@
-# BDServer Challenge
+# Challenge
 # Created by Filipe Petitemberte
 
 # IMPORTANT
